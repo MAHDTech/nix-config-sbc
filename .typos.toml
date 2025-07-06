@@ -1,0 +1,52 @@
+[default]
+
+locale = "en-au"
+
+extend-ignore-re = [
+    "^[ \t]*-----BEGIN PGP PUBLIC KEY BLOCK-----.*^[ \t]*-----END PGP PUBLIC KEY BLOCK-----",
+    "(?Rm)^.*(#|//)\\s*spellchecker:disable-line$"
+]
+
+[default.extend-words]
+
+ags = "ags"
+analyzer = "analyzer"
+authorised = "authorised"
+authorization = "authorization"
+authorizations = "authorizations"
+authorized = "authorized"
+center = "center"
+cros = "cros"
+customizations = "customizations"
+guage = "guage"
+hashi = "hashi"
+hashicorp = "hashicorp"
+hda = "hda"
+initialize = "initialize"
+initialized = "initialized"
+initializing = "initializing"
+maximize = "maximize"
+monitord = "monitord"
+normalization = "normalization"
+optimizations = "optimizations"
+optimized = "optimized"
+organization = "organization"
+organizations = "organizations"
+organize = "organize"
+personalization = "personalization"
+randomize = "randomize"
+randomized = "randomized"
+recognize = "recognize"
+
+[files]
+
+ignore-vcs = true
+
+extend-exclude = [
+  "*.drawio",
+  ".devenv",
+  ".direnv",
+  ".git",
+  "secrets",
+  "vendor"
+]
