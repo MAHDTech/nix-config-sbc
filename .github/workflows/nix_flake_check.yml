@@ -2,13 +2,14 @@
 name: Nix Flake check
 
 on:
-  push:
-    branches:
-      - trunk
-
   pull_request:
     branches:
       - "trunk"
+    types:
+      - opened
+      - synchronize
+      - ready_for_review
+  workflow_dispatch:
 
 permissions:
   contents: read

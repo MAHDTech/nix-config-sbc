@@ -37,6 +37,7 @@ personalization = "personalization"
 randomize = "randomize"
 randomized = "randomized"
 recognize = "recognize"
+synchronize = "synchronize"
 
 [files]
 
