@@ -94,31 +94,6 @@ organization = "organization"
 organizations = "organizations"
 personalization = "personalization"
 
-# Typos in third-party kernel patches (preserved as-is)
-addionally = "addionally"
-alltogether = "alltogether"
-aquire = "aquire"
-asyncronous = "asyncronous"
-chunck = "chunck"
-convinience = "convinience"
-describtion = "describtion"
-embedd = "embedd"
-existance = "existance"
-folowing = "folowing"
-happend = "happend"
-higest = "higest"
-increse = "increse"
-ommitted = "ommitted"
-partically = "partically"
-prioirty = "prioirty"
-proctecting = "proctecting"
-propage = "propage"
-readyness = "readyness"
-seperate = "seperate"
-simplicitly = "simplicitly"
-sthe = "sthe"
-underlaying = "underlaying"
-
 [files]
 
 ignore-vcs = true
@@ -129,5 +104,6 @@ extend-exclude = [
   ".direnv",
   ".git",
   "secrets",
-  "vendor"
+  "vendor",
+  "pkgs"
 ]
