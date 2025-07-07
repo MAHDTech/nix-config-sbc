@@ -8,27 +8,21 @@
 
   system.stateVersion = globalStateVersion;
 
-  nix.settings = {
-    experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
-  };
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    git # used by nix flakes
     curl
+    git
 
-    neofetch
+    btop
+    htop
     lm_sensors # `sensors`
-    btop # monitor system resources
+    neofetch
 
     # Peripherals
-    mtdutils
     i2c-tools
     minicom
+    mtdutils
   ];
 
   # Enable the OpenSSH daemon.
