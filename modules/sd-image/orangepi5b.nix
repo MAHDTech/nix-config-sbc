@@ -73,9 +73,9 @@ in
   # Override the rootfs image to use custom volume label
   system.build.rootfsImage = lib.mkForce (
     config.pkgs.callPackage "${config.pkgs.path}/nixos/lib/make-ext4-fs.nix" {
+      inherit (config.sdImage) compressImage;
       inherit (config.sdImage) storePaths;
       inherit uuid;
-      inherit (config.sdImage) compressImage;
       populateImageCommands = config.sdImage.populateRootCommands;
       volumeLabel = "nixos"; # Custom label instead of default "NIXOS_SD"
     }
