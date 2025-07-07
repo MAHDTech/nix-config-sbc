@@ -54,13 +54,13 @@
 
   fileSystems = {
 
-    "/" = {
+    "/" = lib.mkDefault {
       device = "/dev/disk/by-label/nixos";
       fsType = "ext4";
       options = [ "defaults" ];
     };
 
-    "/boot" = {
+    "/boot" = lib.mkDefault {
       device = "/dev/disk/by-label/ESP";
       fsType = "vfat";
       options = [ "defaults" ];

@@ -4,6 +4,10 @@
   pkgs,
   ...
 }:
+let
+  # Check if we're building an SD image by looking for sdImage options
+  isSDImage = builtins.hasAttr "sdImage" config;
+in
 {
   boot = {
     consoleLogLevel = 4;
@@ -22,7 +26,6 @@
       [
       ];
 
-    # NOTE: Do NOT set nomodeset with Intel GPU as they require kernel mode-setting.
     kernelParams = [
       "acpi_osi=Linux"
       "acpi_backlight=native"
@@ -34,7 +37,6 @@
       "quiet"
     ];
 
-    # Increase file watcher limit for all users
     kernel.sysctl = {
       "fs.inotify.max_user_watches" = 524288;
       "vm.compact_unevictable_allowed" = 1;
@@ -60,9 +62,11 @@
         copyKernels = true;
       };
 
-      # systemd-boot is only for UEFI systems, not SD images
+      # UEFI images = systemd-boot
+      # SD card images = u-boot
       systemd-boot = {
-        enable = lib.mkDefault true;
+        # Enable systemd-boot for UEFI systems, disable by default for SD card images
+        enable = lib.mkDefault (!isSDImage);
 
         graceful = true;
         memtest86.enable = false;

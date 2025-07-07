@@ -182,7 +182,7 @@
             ];
 
             nixpkgs.hostPlatform = aarch64System;
-            formatConfigs.rk3588-raw-efi = ./modules/rk3588-raw-efi.nix;
+            formatConfigs.rk3588-raw-efi = ./modules/uefi-image/rk3588-raw.nix;
           };
       };
 
@@ -226,6 +226,7 @@
               };
               modules = [
                 ./modules/configuration.nix
+                ./modules/uefi-image/base.nix
 
                 board.core
                 self.nixosModules.formats
