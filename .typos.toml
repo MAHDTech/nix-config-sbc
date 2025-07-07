@@ -94,6 +94,11 @@ organization = "organization"
 organizations = "organizations"
 personalization = "personalization"
 
+# Kernel patch preserved typos (keep as-is in patches)
+describtion = "describtion"
+seperate = "seperate"
+readyness = "readyness"
+
 [files]
 
 ignore-vcs = true
@@ -105,5 +110,5 @@ extend-exclude = [
   ".git",
   "secrets",
   "vendor",
-  "pkgs"
+  "pkgs/"
 ]

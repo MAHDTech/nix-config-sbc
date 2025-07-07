@@ -10,6 +10,10 @@
     ";
     extra-experimental-features = "nix-command flakes";
     warn-dirty = true;
+    # Memory optimization for QEMU cross-compilation
+    max-jobs = 1;
+    cores = 1;
+    system-features = [ "big-parallel" ];
   };
 
   inputs = {
