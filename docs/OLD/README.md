@@ -10,7 +10,7 @@ Default user: `rk`, default password: `rk3588`
 
 UEFI support:
 
-| Singal Board Computer | Boot from SD card  | Boot from SSD      |
+| Single Board Computer | Boot from SD card  | Boot from SSD      |
 | --------------------- | ------------------ | ------------------ |
 | Orange Pi 5           | :heavy_check_mark: | :heavy_check_mark: |
 | Orange Pi 5 Plus      | :heavy_check_mark: | :heavy_check_mark: |
@@ -18,7 +18,7 @@ UEFI support:
 
 U-Boot support:
 
-| Singal Board Computer | Boot from SD card  | Boot from SSD      |
+| Single Board Computer | Boot from SD card  | Boot from SSD      |
 | --------------------- | ------------------ | ------------------ |
 | Orange Pi 5           | :heavy_check_mark: | :heavy_check_mark: |
 | Orange Pi 5 Plus      | :heavy_check_mark: | :heavy_check_mark: |

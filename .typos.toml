@@ -3,43 +3,108 @@
 locale = "en-au"
 
 extend-ignore-re = [
+    # Ignore spellchecker comments
+    "(?Rm)^.*(#|//)\\s*spellchecker:disable-line$",
+
+    # Ignore PGP public key blocks
     "^[ \t]*-----BEGIN PGP PUBLIC KEY BLOCK-----.*^[ \t]*-----END PGP PUBLIC KEY BLOCK-----",
-    "(?Rm)^.*(#|//)\\s*spellchecker:disable-line$"
+
+    # Ignore Linux kernel CONFIG variables and other all-caps identifiers
+    "\\bCONFIG_[A-Z0-9_]+\\b",
+    "\\b[A-Z]{2,}[A-Z0-9_]*\\b",
+
+    # Ignore password hashes and other cryptographic strings
+    "\\$[0-9]\\$[A-Za-z0-9./]+\\$[A-Za-z0-9./]+",
+
+    # Ignore network protocol names like CIPSOv4
+    "\\bCIPSOv?[0-9]+\\b",
+
+    # Ignore git commit hashes in patches and diffs
+    "index [a-f0-9]{10,40}\\.\\.[a-f0-9]{10,40}",
+
+    # Ignore git branch names
+    "\\b[a-zA-Z0-9/_-]+\\b",
+
+    # Ignore git commit hashes in patches and diffs
+    "\\b[a-f0-9]{7,40}\\b"
 ]
 
 [default.extend-words]
 
+# Technical abbreviations and kernel terms
 ags = "ags"
+assoiciated = "assoiciated"
+eiter = "eiter"
+filp = "filp"
+pn = "pn"
+wrk = "wrk"
+
+# American English variants (standard in kernel/tech)
+alphabetized = "alphabetized"
+amortize = "amortize"
 analyzer = "analyzer"
-authorised = "authorised"
-authorization = "authorization"
-authorizations = "authorizations"
-authorized = "authorized"
+canceled = "canceled"
 center = "center"
-cros = "cros"
+centered = "centered"
+customize = "customize"
+customization = "customization"
 customizations = "customizations"
-guage = "guage"
-hashi = "hashi"
-hashicorp = "hashicorp"
-hda = "hda"
+finalize = "finalize"
+generalize = "generalize"
+generalized = "generalized"
+generalizes = "generalizes"
+generalizing = "generalizing"
 initialization = "initialization"
 initialize = "initialize"
 initialized = "initialized"
+initializes = "initializes"
 initializing = "initializing"
 maximize = "maximize"
-monitord = "monitord"
-normalization = "normalization"
+minimize = "minimize"
+normalize = "normalize"
+optimization = "optimization"
 optimizations = "optimizations"
+optimize = "optimize"
 optimized = "optimized"
-organization = "organization"
-organizations = "organizations"
 organize = "organize"
-personalization = "personalization"
 randomize = "randomize"
 randomized = "randomized"
 recognize = "recognize"
 sanitize = "sanitize"
+serialize = "serialize"
+serialized = "serialized"
+serialization = "serialization"
+signaled = "signaled"
+signaler = "signaler"
+signaling = "signaling"
+synchronization = "synchronization"
 synchronize = "synchronize"
+unlabeled = "unlabeled"
+utilized = "utilized"
+utilization = "utilization"
+utilizes = "utilizes"
+
+# Proper nouns and company names
+hashicorp = "hashicorp"
+immortalis = "immortalis"
+ser = "ser"
+stach = "stach"
+synopsys = "synopsys"
+
+# Technical terms and abbreviations
+authorised = "authorised"
+authorization = "authorization"
+authorizations = "authorizations"
+authorized = "authorized"
+cros = "cros"
+guage = "guage"
+hashi = "hashi"
+hda = "hda"
+informations = "informations"
+monitord = "monitord"
+organization = "organization"
+organizations = "organizations"
+personalization = "personalization"
 
 [files]
 
