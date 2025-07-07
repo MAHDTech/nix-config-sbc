@@ -3,29 +3,17 @@
 locale = "en-au"
 
 extend-ignore-re = [
-    # Ignore spellchecker comments
-    "(?Rm)^.*(#|//)\\s*spellchecker:disable-line$",
-
-    # Ignore PGP public key blocks
     "^[ \t]*-----BEGIN PGP PUBLIC KEY BLOCK-----.*^[ \t]*-----END PGP PUBLIC KEY BLOCK-----",
-
+    "(?Rm)^.*(#|//)\\s*spellchecker:disable-line$",
     # Ignore Linux kernel CONFIG variables and other all-caps identifiers
     "\\bCONFIG_[A-Z0-9_]+\\b",
     "\\b[A-Z]{2,}[A-Z0-9_]*\\b",
-
     # Ignore password hashes and other cryptographic strings
     "\\$[0-9]\\$[A-Za-z0-9./]+\\$[A-Za-z0-9./]+",
-
     # Ignore network protocol names like CIPSOv4
     "\\bCIPSOv?[0-9]+\\b",
-
     # Ignore git commit hashes in patches and diffs
     "index [a-f0-9]{10,40}\\.\\.[a-f0-9]{10,40}",
-
-    # Ignore git branch names
-    "\\b[a-zA-Z0-9/_-]+\\b",
-
-    # Ignore git commit hashes in patches and diffs
     "\\b[a-f0-9]{7,40}\\b"
 ]
 
@@ -105,6 +93,31 @@ monitord = "monitord"
 organization = "organization"
 organizations = "organizations"
 personalization = "personalization"
+
+# Typos in third-party kernel patches (preserved as-is)
+addionally = "addionally"
+alltogether = "alltogether"
+aquire = "aquire"
+asyncronous = "asyncronous"
+chunck = "chunck"
+convinience = "convinience"
+describtion = "describtion"
+embedd = "embedd"
+existance = "existance"
+folowing = "folowing"
+happend = "happend"
+higest = "higest"
+increse = "increse"
+ommitted = "ommitted"
+partically = "partically"
+prioirty = "prioirty"
+proctecting = "proctecting"
+propage = "propage"
+readyness = "readyness"
+seperate = "seperate"
+simplicitly = "simplicitly"
+sthe = "sthe"
+underlaying = "underlaying"
 
 [files]
 
