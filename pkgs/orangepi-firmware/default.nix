@@ -5,16 +5,17 @@
 }:
 stdenvNoCC.mkDerivation {
   pname = "orangepi-firmware";
-  version = "2024.01.24";
+  version = "2025.03.19";
   dontBuild = true;
   dontFixup = true;
   compressFirmware = false;
 
+  # https://github.com/orangepi-xunlong/firmware/tree/master
   src = fetchFromGitHub {
     owner = "orangepi-xunlong";
     repo = "firmware";
-    rev = "76ead17a1770459560042a9a7c43fe615bbce5e7";
-    hash = "sha256-mltaup92LTGbuCXeGTMdoFloX3vZRbaUFVbh6lwveFs=";
+    rev = "db5e86200ae592c467c4cfa50ec0c66cbc40b158";
+    sha256 = "sha256-v+4dv4U1vIF0kNCzbX8iZsGNkKWUDWdMmQOwuoFKWRo=";
   };
 
   installPhase = ''

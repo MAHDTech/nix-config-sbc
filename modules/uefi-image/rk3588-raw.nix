@@ -15,11 +15,15 @@
   system.build.rk3588-raw-efi = lib.mkForce (
     import "${toString pkgs.path}/nixos/lib/make-disk-image.nix" {
       inherit lib config pkgs;
+      bootSize = "512M"; # 512MB
+      copyChannel = false;
+      deterministic = true;
       diskSize = 16384; # 16GB
       format = "raw";
-      partitionTableType = "efi";
-      installBootLoader = true;
       fsType = "ext4";
+      installBootLoader = true;
+      label = "nixos";
+      partitionTableType = "efi";
     }
   );
 }

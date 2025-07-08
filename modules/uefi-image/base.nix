@@ -5,13 +5,47 @@
 {
   # Basic UEFI boot configuration
   boot = {
-    initrd.availableKernelModules = [ "ext4" ];
-    supportedFilesystems = [ "ext4" ];
+    supportedFilesystems = [
+      "btrfs"
+      "cifs"
+      "ext4"
+      "f2fs"
+      "nfs"
+      "ntfs"
+      "vfat"
+      "xfs"
+    ];
+
+    initrd = {
+      availableKernelModules = [
+        "ahci"
+        "nvme"
+        "phy_rockchip_naneng_combphy"
+        "sd_mod"
+        "uas"
+        "usb_storage"
+        "usbhid"
+        "xhci_pci"
+      ];
+    };
+
     loader = {
       systemd-boot.enable = lib.mkDefault true;
       efi.canTouchEfiVariables = lib.mkDefault true;
       grub.enable = lib.mkDefault false;
       grub.device = "nodev";
+    };
+  };
+
+  # Hardware configuration
+  hardware = {
+    opengl = {
+      enable = true;
+    };
+
+    # Video acceleration
+    graphics = {
+      enable = true;
     };
   };
 

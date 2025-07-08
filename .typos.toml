@@ -105,10 +105,10 @@ ignore-vcs = true
 
 extend-exclude = [
   "*.drawio",
-  ".devenv",
-  ".direnv",
-  ".git",
-  "secrets",
-  "vendor",
-  "pkgs/"
+  ".devenv/**",
+  ".direnv/**",
+  ".git/**",
+  "secrets/**",
+  "vendor/**",
+  "pkgs/**"
 ]

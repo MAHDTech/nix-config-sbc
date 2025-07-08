@@ -10,10 +10,17 @@
     ";
     extra-experimental-features = "nix-command flakes";
     warn-dirty = true;
-    # Memory optimization for QEMU cross-compilation
-    max-jobs = 1;
-    cores = 1;
-    system-features = [ "big-parallel" ];
+    sandbox = true;
+    extra-platforms = [ "aarch64-linux" ];
+
+    system-features = [
+      "big-parallel"
+      "kvm"
+    ];
+    max-jobs = 4;
+    cores = 0;
+    timeout = 14400; # 4 hours total timeout
+    max-silent-time = 3600; # 1 hour of no output
   };
 
   inputs = {
@@ -332,7 +339,12 @@
             staticcheck.enable = true;
             statix.enable = true;
             trim-trailing-whitespace.enable = true;
-            typos.enable = true;
+            typos = {
+              enable = true;
+              settings = {
+                configPath = ".typos.toml";
+              };
+            };
           };
         };
       }

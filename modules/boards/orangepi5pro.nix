@@ -8,42 +8,58 @@
 {
   imports = [
     ./base.nix
-    ./dtb-install.nix
+    # TODO: Add DTB when default kernel includes it.
+    #./dtb-install.nix
   ];
 
-  boot = {
-    # Use mainline kernel with Rockchip support
-    #kernelPackages = pkgs.linuxPackages_latest;
-    kernelPackages = pkgs.linuxPackages_6_15;
-
-    # kernelParams copy from Armbian's /boot/armbianEnv.txt & /boot/boot.cmd
-    kernelParams = [
-      "rootwait"
-
-      "earlycon" # enable early console, so we can see the boot messages via serial port / HDMI
-      "consoleblank=0" # disable console blanking(screen saver)
-      "console=ttyS2,1500000" # serial port
-      "console=tty1" # HDMI
-
-      # docker optimizations
-      "cgroup_enable=cpuset"
-      "cgroup_memory=1"
-      "cgroup_enable=memory"
-      "swapaccount=1"
-    ];
-  };
-
-  # add some missing deviceTree in armbian/linux-rockchip:
-  # orange pi 5's deviceTree in armbian/linux-rockchip:
-  #    https://github.com/armbian/linux-rockchip/blob/rk-5.10-rkr4/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dts
   hardware = {
     deviceTree = {
-      name = "rockchip/rk3588s-orangepi-5.dtb";
+      # Use the new Orange Pi 5 Pro DTB from our custom kernel
+      name = "rockchip/rk3588s-orangepi-5-pro.dtb";
       overlays = [ ];
     };
 
     firmware = [
       (pkgs.callPackage ../../pkgs/orangepi-firmware { })
     ];
+  };
+
+  # Orange Pi 5 Pro specific kernel parameters for HDMI/Display
+  boot = {
+
+    # Use a custom kernel with Orange Pi 5 Pro DTS
+    kernelPackages = pkgs.linuxPackagesFor (pkgs.callPackage ../../pkgs/kernel/vendor.nix { });
+
+    kernelParams = [
+      "rootwait"
+
+      # Console and early boot
+      "earlycon"
+      "consoleblank=0"
+      "console=ttyS2,1500000"
+      "console=tty1"
+
+      # Graphics and HDMI specific for RK3588S
+      "video=HDMI-A-1:1920x1080@60"
+      "drm.debug=0"
+
+      # Ensure proper device tree loading
+      "initcall_debug"
+    ];
+
+    kernelModules = [
+      "rockchip_drm"
+      "dw_hdmi"
+      "dw_mipi_dsi"
+      "panfrost"
+    ];
+
+    initrd = {
+      kernelModules = [
+        "rockchipdrm"
+        "dw_hdmi"
+        "panfrost"
+      ];
+    };
   };
 }

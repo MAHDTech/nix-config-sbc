@@ -4,14 +4,14 @@
 }:
 stdenvNoCC.mkDerivation {
   pname = "rkbin-rk3588";
-  version = "0.0.1";
+  version = "2025.07.07";
 
   # https://github.com/armbian/rkbin/tree/master
   src = fetchFromGitHub {
     owner = "armbian";
     repo = "rkbin";
-    rev = "ff684f607af661ac0ef5ce59f0533adb2beb6e12";
-    sha256 = "sha256-sOhdlvdQrH7eykPV2y2r7/NqNcxdgtnBshQAka6ZXD0=";
+    rev = "669fe029e9dcff3580e68c1abaa94f35d4166823";
+    sha256 = "";
   };
 
   installPhase = ''

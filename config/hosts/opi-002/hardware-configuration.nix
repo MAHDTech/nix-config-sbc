@@ -14,12 +14,13 @@
   boot = {
     supportedFilesystems = [
       "btrfs"
-      "vfat"
-      "f2fs"
-      "xfs"
-      "ntfs"
       "cifs"
+      "ext4"
+      "f2fs"
       "nfs"
+      "ntfs"
+      "vfat"
+      "xfs"
     ];
 
     initrd = {
