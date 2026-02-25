@@ -39,11 +39,6 @@
 
   # Hardware configuration
   hardware = {
-    opengl = {
-      enable = true;
-    };
-
-    # Video acceleration
     graphics = {
       enable = true;
     };

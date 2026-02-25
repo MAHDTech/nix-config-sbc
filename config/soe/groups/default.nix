@@ -11,5 +11,9 @@
     "adbusers" = {
       gid = 10002;
     };
+
+    "incus-admin" = {
+      gid = 10003;
+    };
   };
 }
