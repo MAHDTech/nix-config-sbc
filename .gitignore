@@ -1,0 +1,18 @@
+/nixpkgs
+/nixpkgs-cached
+/.pre-commit-config.yaml
+/.direnv
+
+result
+result/
+result-*
+
+*~
+*.swp
+.DS_Store
+
+# Personal scripts
+nix-build/
+outputs/
+*.ext4
+*.zst
